@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add a New Athlete</h2>
+
+<a href="/Athlete/Index">Back to List</a>
+<form method="post" action="/Athlete/Add">
+    <div><span>Name:</span><input id="AthleteName" type="text" name="AthleteName" /></div>
+    <div><span>Age:</span><input id="AthleteAge" type="text" name="AthleteAge" /></div>
+    <div><span>Gender:</span><input id="AthleteGender" type="text" name="AthleteGender" /></div>
+    <div><input id="TrackTeamID" type="hidden" name="TrackTeamId" value="1" /></div>
+
+    
+    <div><input type="submit" value="Add Athlete" /></div>
+
+
+
+</form>
+

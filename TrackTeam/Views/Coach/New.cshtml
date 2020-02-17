@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add a New Coach</h2>
+<a href=" /Coach/Index">Back to List</a>
+<form method="post" action="/Coach/Add">
+    <div><span>Name:</span><input id="CoachName" type="text" name="CoachName"/></div>
+    <div><input id="TrackTeamID" type="hidden"name="TrackTeamID" value="1"/></div>
+    <div> <input type="submit" value="Add Coach"/></div>
+</form>
+

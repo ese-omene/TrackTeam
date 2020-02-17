@@ -1,0 +1,18 @@
+﻿@model TrackTeam.Models.Athlete
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details for @Model.AthleteName</h2>
+<div>
+    <div><a href="/Athlete/Index">Back to List</a></div>
+    <div><a href="/Athlete/Update/@Model.AthleteID">Update</a></div>
+    <div><a href="/Athlete/DeleteConfirm/@Model.AthleteID">Delete</a></div>
+</div>
+
+<div>
+    <div>Name:@Model.AthleteName</div>
+    <div>Age:@Model.AthleteAge</div>
+    <div>Gender:@Model.AthleteGender</div>
+</div>

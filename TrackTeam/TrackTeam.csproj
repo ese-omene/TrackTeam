@@ -127,11 +127,21 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AthleteController.cs" />
+    <Compile Include="Controllers\CoachController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Data\TrackTeamContext.cs" />
     <Compile Include="Migrations\202002062013571_initial.cs" />
     <Compile Include="Migrations\202002062013571_initial.designer.cs">
       <DependentUpon>202002062013571_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002170201132_Final.cs" />
+    <Compile Include="Migrations\202002170201132_Final.designer.cs">
+      <DependentUpon>202002170201132_Final.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002170546049_Update.cs" />
+    <Compile Include="Migrations\202002170546049_Update.designer.cs">
+      <DependentUpon>202002170546049_Update.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgeCategory.cs" />
@@ -142,6 +152,9 @@
     <Compile Include="Models\Athlete.cs" />
     <Compile Include="Models\Coach.cs" />
     <Compile Include="Models\TrackTeam.cs" />
+    <Compile Include="Models\ViewModels\AthleteDetails.cs" />
+    <Compile Include="Models\ViewModels\UpdateAthlete.cs" />
+    <Compile Include="Models\ViewModels\UpdateCoach.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +193,16 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Athlete\Index.cshtml" />
+    <Content Include="Views\Athlete\Details.cshtml" />
+    <Content Include="Views\Athlete\New.cshtml" />
+    <Content Include="Views\Athlete\Update.cshtml" />
+    <Content Include="Views\Athlete\DeleteConfirm.cshtml" />
+    <Content Include="Views\Coach\Index.cshtml" />
+    <Content Include="Views\Coach\Details.cshtml" />
+    <Content Include="Views\Coach\New.cshtml" />
+    <Content Include="Views\Coach\Update.cshtml" />
+    <Content Include="Views\Coach\DeleteConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -200,6 +223,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202002062013571_initial.resx">
       <DependentUpon>202002062013571_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002170201132_Final.resx">
+      <DependentUpon>202002170201132_Final.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002170546049_Update.resx">
+      <DependentUpon>202002170546049_Update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

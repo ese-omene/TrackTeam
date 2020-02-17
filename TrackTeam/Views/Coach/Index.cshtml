@@ -1,0 +1,20 @@
+﻿@model List<TrackTeam.Models.Coach>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of Current Coaches</h2>
+<div><a href="/Coach/New">Add a New Coach</a></div>
+<div>
+    @{ 
+        foreach (var Coach in Model)
+        {
+            <div>
+                <div>Name:<a href="/Coach/Details/@Coach.CoachID">@Coach.CoachName</a></div>
+            </div>
+            <div><a href="/Coach/Update/@Coach.CoachID">Update</a></div>
+        }
+    }
+</div>
+
+

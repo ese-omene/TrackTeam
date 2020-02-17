@@ -1,0 +1,15 @@
+﻿@model TrackTeam.Models.Coach
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details for @Model.CoachName</h2>
+<div><a href="/Coach/Index">Back to List</a></div>
+<div><a href="/Coach/Update/@Model.CoachID">Update</a></div>
+<div><a href="/Coach/DeleteConfirm/@Model.CoachID">Delete</a></div>
+
+<div>
+    <div>Name:@Model.CoachName</div>
+    
+</div>
+

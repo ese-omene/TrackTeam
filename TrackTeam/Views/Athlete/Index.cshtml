@@ -1,0 +1,21 @@
+﻿@model List<TrackTeam.Models.Athlete>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of Current Roster</h2>
+<div class="navbar">
+    <a class="navlink" href="/Athlete/New">Add a New Athlete</a>
+</div>
+@{ foreach (var Athlete in Model)
+    {
+        <div>
+            <div>Name:<a href="/Athlete/Details/@Athlete.AthleteID">@(Athlete.AthleteName) </a></div>
+
+            <div>Age:<span>@(Athlete.AthleteAge)</span></div>
+            <div>Gender:<span>@(Athlete.AthleteGender)</span></div>
+            <div><a href="/Athlete/Update/@(Athlete.AthleteID)">Update</a></div>
+        </div>
+    }
+}
+

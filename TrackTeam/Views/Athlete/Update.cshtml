@@ -1,0 +1,15 @@
+﻿@model TrackTeam.Models.ViewModels.UpdateAthlete 
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+<form action="/Athlete/Update/@Model.Athlete.AthleteID" method="post">
+    <div><span>Athlete Name:</span><input type="text"value="@Model.Athlete.AthleteName" id="AthleteName" name="AthleteName"/></div>
+    <div><span>Athlete Age:</span><input type="text"value="@Model.Athlete.AthleteAge" id="AthleteAge" name="AthleteAge"/></div>
+    <div><span>Athlete Gender:</span><input type="text"value="@Model.Athlete.AthleteGender" id="AthleteGender" name="AthleteGender"/></div>
+   
+        <div><input type="submit" value="update" /></div>
+</form>
+<div><a href="/Athlete/Index">Back to List</a></div>
+

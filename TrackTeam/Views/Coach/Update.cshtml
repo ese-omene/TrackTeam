@@ -1,0 +1,13 @@
+﻿@model TrackTeam.Models.ViewModels.UpdateCoach
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+<form action="/Coach/Update/@Model.Coach.CoachID" method="post">
+    <div><span>Coach Name:</span><input type="text" value="@Model.Coach.CoachName" id="CoachName" name="CoachName"/></div>
+    <div><input type="submit" value="update"/></div>
+
+</form>
+<div><a href="/Coach/Index">Back to List</a></div>
+

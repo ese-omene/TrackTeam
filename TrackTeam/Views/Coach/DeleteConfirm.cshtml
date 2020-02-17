@@ -1,0 +1,10 @@
+﻿@model TrackTeam.Models.Coach
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Are you sure you want to retire @Model.CoachName</h2>
+<div><a href="/Coach/Details/@Model.CoachID">Cancel</a></div>
+<form method="post" action="/Coach/Delete/@Model.CoachID">
+    <div><input type="submit" value="Confirm"/></div>
+</form>
