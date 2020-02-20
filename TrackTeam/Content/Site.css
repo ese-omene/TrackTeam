@@ -22,3 +22,13 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.logo {
+   width: 250px;
+   height: auto;
+   float: right;
+}
+
+.jumbotron h1 {
+    font-size: 36px;
+}

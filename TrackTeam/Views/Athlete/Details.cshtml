@@ -1,18 +1,30 @@
-﻿@model TrackTeam.Models.Athlete
+﻿@model TrackTeam.Models.ViewModels.AthleteDetails
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details for @Model.AthleteName</h2>
-<div>
-    <div><a href="/Athlete/Index">Back to List</a></div>
-    <div><a href="/Athlete/Update/@Model.AthleteID">Update</a></div>
-    <div><a href="/Athlete/DeleteConfirm/@Model.AthleteID">Delete</a></div>
-</div>
+<h2>Details for @Model.athlete.AthleteName</h2>
+<ul>
+    <li><a href="/Athlete/Index">Back to List</a></li>
+    <li><a href="/Athlete/Update/@Model.athlete.AthleteID">Update</a></li>
+    <li><a href="/Athlete/DeleteConfirm/@Model.athlete.AthleteID">Delete</a></li>
+</ul>
 
-<div>
-    <div>Name:@Model.AthleteName</div>
-    <div>Age:@Model.AthleteAge</div>
-    <div>Gender:@Model.AthleteGender</div>
+<div class="athlete_card">
+    <div>Name:@Model.athlete.AthleteName</div>
+    <div>Age:@Model.athlete.AthleteAge</div>
+    <div>Gender:@Model.athlete.AthleteGender</div>
+</div>
+<div class="coach_staff">
+    <span>Coaching Staff</span>
+    @{ 
+        foreach (var coaches in @Model.coaches)
+        {
+            <div>
+                <a href="/Coach/Details/@coaches.CoachID">@coaches.CoachName</a>
+            </div>
+        }
+    }
+
 </div>

@@ -24,8 +24,8 @@ namespace TrackTeam.Models
         public string CoachName { get; set; }
 
         // One TrackTeam to Many Coaches
-     //  public int TrackTeamID { get; set; }
-       // [ForeignKey("TrackTeamID")]
+      //  public int TrackTeamID { get; set; }
+       /// [ForeignKey("TrackTeamID")]
         public virtual TrackTeam Team { get; set; }
 
         //Representing the Many in One coach to Many Disciplines 

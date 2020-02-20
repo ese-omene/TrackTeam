@@ -40,15 +40,15 @@ namespace TrackTeam.Controllers
             }
 
             // lvlup - create queries for  information about the coaches and events the athletes is involved with
-           // string query = "select * from coaches inner join coachathletes on coaches.coachid = coachathlete.coaches_coachid where athlete_athleteid = @id";
-            //SqlParameter param = new SqlParameter("@id", id);
-            //List<Coach> CoachAthletes = db.Coaches.SqlQuery(query, param).ToList();
+           string query = "select * from coaches inner join coachathletes on coaches.coachid = coachathletes.coach_coachid where athlete_athleteid = @id";
+            SqlParameter param = new SqlParameter("@id", id);
+            List<Coach> CoachAthletes = db.Coaches.SqlQuery(query, param).ToList();
 
-          //  AthleteDetails viewmodel = new AthleteDetails();
-          //  viewmodel.athlete = athlete;
-          //  viewmodel.coaches = CoachAthletes;
+            AthleteDetails viewmodel = new AthleteDetails();
+            viewmodel.athlete = athlete;
+            viewmodel.coaches = CoachAthletes;
 
-            return View(athlete);
+            return View(viewmodel);
         }
 
         
@@ -56,18 +56,16 @@ namespace TrackTeam.Controllers
 
         // POST: Athlete/Create
         [HttpPost]
-        public ActionResult Add(int TrackTeamID, string AthleteName, int AthleteAge, string AthleteGender)
+        public ActionResult Add(string AthleteName, int AthleteAge, string AthleteGender)
         {
             
             
                 // TODO: Add insert logic here
-                string query = "insert into athletes (AthleteName, AthleteAge, AthleteGender, TrackTeamID) values (@AthleteName, @AthleteAge, @AthleteGender, @TrackTeamID) ";
-                SqlParameter[] sqlparams = new SqlParameter[4];
+                string query = "insert into athletes (AthleteName, AthleteAge, AthleteGender) values (@AthleteName, @AthleteAge, @AthleteGender) ";
+                SqlParameter[] sqlparams = new SqlParameter[3];
                 sqlparams[0] = new SqlParameter("@AthleteName", AthleteName);
                 sqlparams[1] = new SqlParameter("@AthleteAge", AthleteAge);
                 sqlparams[2] = new SqlParameter("@AthleteGender", AthleteGender);
-                sqlparams[3] = new SqlParameter("@TrackTeamID", TrackTeamID);
-
 
                 db.Database.ExecuteSqlCommand(query, sqlparams);
 

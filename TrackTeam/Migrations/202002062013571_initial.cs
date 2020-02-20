@@ -39,7 +39,7 @@
                     {
                         CoachID = c.Int(nullable: false, identity: true),
                         CoachName = c.String(),
-                        TrackTeamID = c.Int(nullable: true),
+                        TrackTeamID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.CoachID)
                 .ForeignKey("dbo.TrackTeams", t => t.TrackTeamID, cascadeDelete: true)

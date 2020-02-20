@@ -7,7 +7,7 @@ namespace TrackTeam.Models.ViewModels
 {
     public class AthleteDetails
     {
-        public virtual Athlete athlete { get; set; }
+        public  Athlete athlete { get; set; }
 
         public List<Coach> coaches { get; set; }
 
