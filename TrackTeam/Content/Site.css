@@ -32,3 +32,24 @@ textarea {
 .jumbotron h1 {
     font-size: 36px;
 }
+.athlete_card, .coach_staff, .discipline_group {
+    
+    display: inline-block;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    
+}
+.athlete_card {
+    border: 2px solid black;
+}
+
+ul li{
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 15px;
+}
+.coach_staff_list ul li{
+    display: block;
+}

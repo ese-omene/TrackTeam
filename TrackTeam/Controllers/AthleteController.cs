@@ -19,9 +19,18 @@ namespace TrackTeam.Controllers
     {
         private TrackTeamContext db = new TrackTeamContext();
         // GET: Athlete
-        public ActionResult Index()
+        public ActionResult Index(string athletesearch)
         {
-            List<Athlete> athletes = db.Athletes.SqlQuery("Select * from Athletes").ToList();
+
+            Debug.WriteLine("if i didn this right then we are searching for" + athletesearch);
+
+            string query = "Select * from Athletes";
+            if (athletesearch!="")
+            {
+                query = query + " where athletename like '%" + athletesearch + "%'";
+                Debug.WriteLine("this is what we are using to search:" + query);
+            }
+            List<Athlete> athletes = db.Athletes.SqlQuery(query).ToList();
             Debug.WriteLine("let's make sure the list function works");
             return View(athletes);
         }
@@ -44,33 +53,41 @@ namespace TrackTeam.Controllers
             SqlParameter param = new SqlParameter("@id", id);
             List<Coach> CoachAthletes = db.Coaches.SqlQuery(query, param).ToList();
 
+            string disQuery = "select * from disciplines inner join disciplineathletes on disciplines.disciplineid = disciplineathletes.discipline_disciplineid where athlete_athleteid = @id";
+            SqlParameter sqlParam = new SqlParameter("@id", id);
+            List<Discipline> DisciplineAthletes = db.Disciplines.SqlQuery(disQuery, sqlParam).ToList();
+
             AthleteDetails viewmodel = new AthleteDetails();
             viewmodel.athlete = athlete;
             viewmodel.coaches = CoachAthletes;
+            viewmodel.disciplines = DisciplineAthletes;
+
 
             return View(viewmodel);
         }
 
-        
-        
+
+
 
         // POST: Athlete/Create
         [HttpPost]
-        public ActionResult Add(string AthleteName, int AthleteAge, string AthleteGender)
+        public ActionResult Add(int TrackTeamID, string AthleteName, int AthleteAge, string AthleteGender)
         {
-            
-            
-                // TODO: Add insert logic here
-                string query = "insert into athletes (AthleteName, AthleteAge, AthleteGender) values (@AthleteName, @AthleteAge, @AthleteGender) ";
-                SqlParameter[] sqlparams = new SqlParameter[3];
-                sqlparams[0] = new SqlParameter("@AthleteName", AthleteName);
-                sqlparams[1] = new SqlParameter("@AthleteAge", AthleteAge);
-                sqlparams[2] = new SqlParameter("@AthleteGender", AthleteGender);
 
-                db.Database.ExecuteSqlCommand(query, sqlparams);
 
-                return RedirectToAction("Index");
-            
+            // TODO: Add insert logic here
+            string query = "insert into athletes (AthleteName, AthleteAge, AthleteGender, TrackTeamID) values (@AthleteName, @AthleteAge, @AthleteGender, @TrackTeamID) ";
+            SqlParameter[] sqlparams = new SqlParameter[4];
+            sqlparams[0] = new SqlParameter("@AthleteName", AthleteName);
+            sqlparams[1] = new SqlParameter("@AthleteAge", AthleteAge);
+            sqlparams[2] = new SqlParameter("@AthleteGender", AthleteGender);
+            sqlparams[3] = new SqlParameter("@TrackTeamID", TrackTeamID);
+
+
+            db.Database.ExecuteSqlCommand(query, sqlparams);
+
+            return RedirectToAction("Index");
+
         }
         // GET: Athlete/New
         public ActionResult New()

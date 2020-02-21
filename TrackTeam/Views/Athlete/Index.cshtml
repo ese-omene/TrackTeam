@@ -3,19 +3,25 @@
     ViewBag.Title = "Index";
 }
 
-<h2>List of Current Roster</h2>
+<h2>Current Roster</h2>
 <div class="navbar">
     <a class="navlink" href="/Athlete/New">Add a New Athlete</a>
 </div>
-@{ foreach (var Athlete in Model)
-    {
-        <div>
-            <div>Name:<a href="/Athlete/Details/@Athlete.AthleteID">@(Athlete.AthleteName) </a></div>
+<form action="/Athlete/Index" method="get">
+    <input type="text" name="athletesearch" id="athletesearch"/>
+    <input type="submit" value="Search"/>
+</form>
+<div >
+    @{ foreach (var Athlete in Model)
+        {
+            <div class="athlete_card">
+                <div>Name:<a href="/Athlete/Details/@Athlete.AthleteID">@(Athlete.AthleteName) </a></div>
 
-            <div>Age:<span>@(Athlete.AthleteAge)</span></div>
-            <div>Gender:<span>@(Athlete.AthleteGender)</span></div>
-            <div><a href="/Athlete/Update/@(Athlete.AthleteID)">Update</a></div>
-        </div>
+                <div>Age:<span>@(Athlete.AthleteAge)</span></div>
+                <div>Gender:<span>@(Athlete.AthleteGender)</span></div>
+                <div><a href="/Athlete/Update/@(Athlete.AthleteID)">Update</a></div>
+            </div>
+        }
     }
-}
 
+</div>

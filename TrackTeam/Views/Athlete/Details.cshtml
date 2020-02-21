@@ -12,19 +12,32 @@
 </ul>
 
 <div class="athlete_card">
-    <div>Name:@Model.athlete.AthleteName</div>
-    <div>Age:@Model.athlete.AthleteAge</div>
-    <div>Gender:@Model.athlete.AthleteGender</div>
-</div>
-<div class="coach_staff">
-    <span>Coaching Staff</span>
-    @{ 
-        foreach (var coaches in @Model.coaches)
-        {
-            <div>
-                <a href="/Coach/Details/@coaches.CoachID">@coaches.CoachName</a>
-            </div>
-        }
-    }
+    <div class="athlete">
+        <div>Name:@Model.athlete.AthleteName</div>
+        <div>Age:@Model.athlete.AthleteAge</div>
+        <div>Gender:@Model.athlete.AthleteGender</div>
+    </div>
 
+    <div class="coach_staff">
+        <span>Coaching Staff</span>
+        @{
+            foreach (var coaches in @Model.coaches)
+            {
+                <div>
+                    <a href="/Coach/Details/@coaches.CoachID">@coaches.CoachName</a>
+                </div>
+            }
+        }
+
+    </div>
+    <div class="discipline_group">
+        <span>Disciplines</span>
+        @{
+            foreach (var disciplines in @Model.disciplines)
+            {
+                <div>@disciplines.DisciplineName </div>
+            }
+        }
+
+    </div>
 </div>
